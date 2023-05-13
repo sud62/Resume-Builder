@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Home from "./Components/Home";
+import Resume from "./Components/Resume";
+import Education from "./Components/Education";
+import Experience from './Components/Experience';
+import Project from './Components/Project';
+import Download from './Components/Download';
+import {BrowserRouter, Routes, Route, Link, NavLink} from "react-router-dom";
+import { Navbar } from 'react-bootstrap';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <header>
+    <h1>Resume Builder</h1>
+    </header>
+    <div className='container'>
+    <BrowserRouter>
+      <Routes>
+        <Route path = "/" element = {<Home /> }/>
+        <Route path = "/resume" element = {<Resume /> }/>
+        <Route path = "/education" element = {<Education /> }/>
+        <Route path = "/experience" element = {<Experience /> }/>
+        <Route path = "/project" element = {<Project /> }/>
+        <Route path = "/download" element = {<Download /> }/>
+        <Route path = "/your-resume" element = {"src\Template\srt-resume.html"} />
+      </Routes>
+    </BrowserRouter>
     </div>
-  );
+    <footer>
+    <p>footer</p></footer>
+    </div>
+  )
 }
 
-export default App;
+export default App
